@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2012172113}
   - component: {fileID: 2012172112}
   - component: {fileID: 2012172111}
+  - component: {fileID: 2012172114}
   m_Layer: 0
   m_Name: North Wall
   m_TagString: Untagged
@@ -527,7 +528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c027d393d0aff874db79999b135667c3, type: 2}
+  - {fileID: 2100000, guid: 7329f0f66bdd12649a17d5628aa8468a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -556,6 +557,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012172109}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2012172114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012172109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3c4d1a55b782a479d4ec0709180c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileX: 1
+  tileZ: 1
 --- !u!1 &2137078203
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +622,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdfb4d146213aed4789503530dbcb4bb, type: 2}
+  - {fileID: 2100000, guid: 6539defab2d13404cb15b9ad691d7988, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -663,4 +678,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileX: 1
-  tileY: 1
+  tileZ: 1
