@@ -6,7 +6,7 @@ public class circlemove : MonoBehaviour
 {
     public int speedSin = 1;
     public int speedCos = 1;
-    public int speed = 1;
+    public float speed = 1;
 
     private float sinWave = 0;
     private float cosWave = 0;
@@ -25,6 +25,8 @@ public class circlemove : MonoBehaviour
         sinWave += dt;
         cosWave += dt;
 
-        gameObject.transform.localPosition = new Vector3(Mathf.Sin(sinWave) * speedSin, 0, Mathf.Cos(cosWave) * speedCos) + startpos;
+
+        gameObject.transform.localPosition =
+            (transform.right * Mathf.Sin(sinWave) * speedSin + transform.forward * Mathf.Cos(cosWave) * speedCos) + startpos;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Vector3 direction = new Vector3(0, 0, 0);
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float slideCooldown;
     [SerializeField] private float slideSpeed;
     private float slideTimer = 0;
+
+    [SerializeField] private Image image;
 
     bool canSlide = true;
     bool sliding = false;
@@ -26,12 +29,6 @@ public class Player : MonoBehaviour
     private float timer = 0;
 
     public Animator animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -87,7 +84,6 @@ public class Player : MonoBehaviour
                 if (slideTimer < slideDuration)
                 {
                     animator.SetBool("Slide", true);
-                    //gameObject.transform.position += (velocity.normalized * slideSpeed * Time.deltaTime);
                 }
 
                 if (slideTimer > slideDuration)
@@ -107,7 +103,6 @@ public class Player : MonoBehaviour
             {
                 gameObject.transform.forward = new Vector3(GetComponent<Rigidbody>().velocity.normalized.x, 0, GetComponent<Rigidbody>().velocity.normalized.z);
             }
-
         }
     }
 
@@ -115,6 +110,8 @@ public class Player : MonoBehaviour
     {
         if (!lose)
         {
+            image.enabled = true;
+
             animator.SetBool("Walking", false);
             animator.SetBool("Slide", false);
             sound.Play();
