@@ -6,6 +6,7 @@ public class circlemove : MonoBehaviour
 {
     public int speedSin = 1;
     public int speedCos = 1;
+    public int speed = 1;
 
     private float sinWave = 0;
     private float cosWave = 0;
@@ -20,7 +21,7 @@ public class circlemove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dt = Time.deltaTime;
+        float dt = Time.deltaTime * speed;
         sinWave += dt;
         cosWave += dt;
 

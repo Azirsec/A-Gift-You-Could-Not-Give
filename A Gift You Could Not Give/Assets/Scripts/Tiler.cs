@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+ public class Tiler : MonoBehaviour
+ {
+     [SerializeField] private float tileX = 1;
+     [SerializeField] private float tileZ = 1;
+     Mesh mesh;
+     private Material mat;
+     void Start()
+     {
+         mat = GetComponent<Renderer>().material;
+         mesh = GetComponent<MeshFilter>().mesh;
+     }
+ 
+     void Update()
+     {
+         mat.mainTextureScale = new Vector2((mesh.bounds.size.x * 
+            transform.localScale.x)/100*tileX, (mesh.bounds.size.z * transform.localScale.z)/100*tileZ);
+     }
+ }

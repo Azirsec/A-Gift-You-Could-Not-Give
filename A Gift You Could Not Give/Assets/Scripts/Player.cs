@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private float timer = 0;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,6 @@ public class Player : MonoBehaviour
                 SceneManager.LoadScene(scene);
             }
         }
-
         else
         {
             if (canSlide || slideTimer > slideDuration)
@@ -56,6 +57,15 @@ public class Player : MonoBehaviour
                 acceleration = direction * speed;// * Time.deltaTime;
 
                 gameObject.GetComponent<Rigidbody>().AddForce(acceleration, ForceMode.Impulse);
+
+                if (gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0.01f)
+                {
+                    animator.SetBool("Walking", true);
+                }
+                else
+                {
+                    animator.SetBool("Walking", false);
+                }
             }
             /// regular movement ends
 
@@ -76,7 +86,13 @@ public class Player : MonoBehaviour
                 //if slide is still occurring move the character
                 if (slideTimer < slideDuration)
                 {
+                    animator.SetBool("Slide", true);
                     //gameObject.transform.position += (velocity.normalized * slideSpeed * Time.deltaTime);
+                }
+
+                if (slideTimer > slideDuration)
+                {
+                    animator.SetBool("Slide", false);
                 }
 
                 //allow the player to slide again
@@ -93,17 +109,24 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
 
-
-
+    public void Die()
+    {
+        if (!lose)
+        {
+            animator.SetBool("Walking", false);
+            animator.SetBool("Slide", false);
+            sound.Play();
+            lose = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bad")
         {
-            sound.Play();
-            lose = true;
+            Die();
             //SceneManager.LoadScene(scene);
         }
         if (other.gameObject.tag == "Goal")

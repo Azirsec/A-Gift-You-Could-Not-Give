@@ -63,11 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\animatorScript.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\circlemove.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\personScript.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Tiler.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/chris/Documents/GitHub/A-Gift-You-Could-Not-Give/A Gift You Could Not Give/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

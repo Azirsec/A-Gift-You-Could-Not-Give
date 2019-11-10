@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bad
   - Goal
+  - Waypoint
   layers:
   - Default
   - TransparentFX

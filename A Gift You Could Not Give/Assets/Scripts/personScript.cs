@@ -10,6 +10,9 @@ public class personScript : MonoBehaviour
     private Transform[] boi;
     NavMeshAgent agent;
 
+    public float sightdist;
+
+    public LineRenderer line;
 
     void Start()
     {
@@ -22,11 +25,28 @@ public class personScript : MonoBehaviour
         agent.destination = realGoal.position;
     }
 
+    private void Update()
+    {
+        RaycastHit hit1;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit1, sightdist))
+        {
+            
+            line.SetPosition(0, gameObject.transform.position);
+            line.SetPosition(1, hit1.collider.gameObject.transform.position);
+            
+            if (hit1.collider.gameObject.tag == "Player")
+            {
+                hit1.collider.gameObject.GetComponent<Player>().Die();
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         Transform tempGoal;
         print(collider);
-        if(collider.gameObject.tag == "Waypoint")
+        if (collider.gameObject.tag == "Waypoint")
         {
             int choice = Random.Range(1, boi.Length);
             print(choice);
