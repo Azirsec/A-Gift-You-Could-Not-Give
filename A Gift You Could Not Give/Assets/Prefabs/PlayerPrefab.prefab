@@ -190,8 +190,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 1a35b456d1b89574693f489e652350bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -524,6 +522,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5197851071033425174, guid: 726c11650b4a23d4488493c36b83c3f2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71a8ea503c70b4b46a431d52f2826c0a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 726c11650b4a23d4488493c36b83c3f2, type: 3}
 --- !u!95 &3803320076656991072 stripped
